@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthChain - Decentralized Privacy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>HealthChain 🛡️</h1>
+            <p>Your Data. Your Keys. Your Control.</p>
+            <button id="connectWalletBtn" class="btn-primary">Connect Wallet</button>
+            <p id="userAddress" class="status-text">Not Connected</p>
+        </header>
+
+        <main id="appInterface" style="display:none;">
+            
+            <section class="card">
+                <h2>1. Upload Health Record</h2>
+                <p>Simulate uploading GPS/Heart Rate data to IPFS.</p>
+                <div class="form-group">
+                    <input type="text" id="fileName" placeholder="Record Name (e.g. Morning Run GPS)" />
+                    <input type="text" id="fileData" placeholder="Data/IPFS Hash (Simulated)" />
+                    <button onclick="uploadData()" class="btn-action">Secure Upload</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>2. Grant Access</h2>
+                <p>Authorize a Doctor or Coach to view your specific record.</p>
+                <div class="form-group">
+                    <input type="number" id="shareRecordId" placeholder="Record ID (e.g. 0)" />
+                    <input type="text" id="shareAddress" placeholder="Their Wallet Address (0x123...)" />
+                    <button onclick="grantAccess()" class="btn-action">Grant Permission</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>3. Access Records</h2>
+                <p>View records you own or have been given access to.</p>
+                <div class="form-group">
+                    <input type="number" id="viewRecordId" placeholder="Record ID to View" />
+                    <button onclick="viewData()" class="btn-secondary">Retrieve Data</button>
+                </div>
+                <div id="dataDisplay" class="output-box"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
